@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/**  @jsx jsx  */
+import { jsx } from '@emotion/core';
+import Nav from './components/Nav';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import Doc from './routes/doc/Doc';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div css={{ position: 'relative' }}>
+      <Router>
+        <Nav />
+        <div css={{ padding: '24px' }}>
+          <Switch>
+            <Route exact path='/'>
+              <div>Home</div>
+            </Route>
+            <Route path='/doc' component={Doc} />
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;

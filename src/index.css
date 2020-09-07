@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.nav-active {
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+}
+.aside-active {
+  background-color: #cad2c54d;
+}
+li:first-of-type .aside-active {
+  border-radius: 10px 10px 0 0;
+}
+li:last-of-type .aside-active {
+  border-radius: 0 0 10px 10px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
