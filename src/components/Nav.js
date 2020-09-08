@@ -23,18 +23,18 @@ const Nav = () => {
       <ul
         css={{
           all: 'unset',
-          textTransform: 'capitalize',
           li: {
             all: 'unset',
             a: {
               padding: '15px 30px',
+              textTransform: 'capitalize',
               font: 'normal normal 600 16px/19px PT Sans',
             },
           },
         }}
       >
         <li>
-          <NavLink to='/doc/usage' activeClassName='nav-active'>
+          <NavLink to='/doc' activeClassName='nav-active'>
             docs
           </NavLink>
         </li>
@@ -44,11 +44,11 @@ const Nav = () => {
             API key
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to='/patron' activeClassName='nav-active'>
             become a patron
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

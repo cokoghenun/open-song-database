@@ -1,6 +1,6 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Usage from './Usage';
 import Parameters from './Parameters';
 import Example from './Example';
@@ -25,6 +25,7 @@ const Doc = ({ match }) => {
       >
         <Aside />
       </div>
+      <Redirect to={`${match.path}/usage`} />
       <Route path={`${match.path}/usage`} component={Usage} />
       <Route path={`${match.path}/example`} component={Example} />
       <Route path={`${match.path}/changelog`} component={ChangeLog} />

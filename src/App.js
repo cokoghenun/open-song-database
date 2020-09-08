@@ -1,8 +1,10 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
+import Doc from './routes/doc/Doc';
 import Nav from './components/Nav';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
-import Doc from './routes/doc/Doc';
+import Patron from './routes/Patron';
+import ApiKey from './routes/ApiKey';
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
               <div>Home</div>
             </Route>
             <Route path='/doc' component={Doc} />
+            <Route path='/patron' component={Patron} />
+            <Route path='/apikey' component={ApiKey} />
           </Switch>
         </div>
       </Router>
