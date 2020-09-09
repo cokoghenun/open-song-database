@@ -5,9 +5,8 @@ const Page = ({ title = 'title', content }) => {
   return (
     <section
       css={{
-        maxWidth: '700px',
-        minWidth: '500px',
-        minHeight: '1200px',
+        width: '700px',
+        // minHeight: '1200px',
         borderRadius: '10px',
         boxShadow: '0px 3px 6px #00000029',
       }}

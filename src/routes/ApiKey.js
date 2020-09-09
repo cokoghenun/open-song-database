@@ -9,16 +9,6 @@ const ApiKey = () => {
   };
   return (
     <section>
-      <header
-        css={{
-          color: '#2F3E46',
-          marginBottom: '40px',
-          textTransform: 'capitalize',
-          font: 'normal normal 600 36px/43px PT Sans',
-        }}
-      >
-        API key
-      </header>
       <main
         css={{
           // maxWidth: '700px',

@@ -21,24 +21,54 @@ const Aside = () => {
             a: {
               display: 'inline-block',
               width: '288px',
-              padding: '24px'
-            }
+              padding: '24px',
+            },
           },
         }}
       >
         <li>
-          <NavLink exact to='/doc/usage'  activeClassName='aside-active'>
-            usage
+          <NavLink exact to='/doc/generatetoken' activeClassName='aside-active'>
+            generate API token
           </NavLink>
         </li>
         <li>
-          <NavLink exact to='/doc/parameters' activeClassName='aside-active'>
-            parameters
+          <NavLink exact to='/doc/artistsearch' activeClassName='aside-active'>
+            artist search
           </NavLink>
         </li>
         <li>
-          <NavLink exact to='/doc/example' activeClassName='aside-active'>
-            examples
+          <NavLink exact to='/doc/albumsearch' activeClassName='aside-active'>
+            album search
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to='/doc/songsearch' activeClassName='aside-active'>
+            song search
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to='/doc/pagingalbum' activeClassName='aside-active'>
+            paging albums
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to='/doc/getartistdata' activeClassName='aside-active'>
+            get artist data
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to='/doc/getalbumdata' activeClassName='aside-active'>
+            get album data
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to='/doc/getsongdata' activeClassName='aside-active'>
+            get song data
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to='/doc/notes' activeClassName='aside-active'>
+            notes
           </NavLink>
         </li>
         <li>

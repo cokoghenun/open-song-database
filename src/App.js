@@ -8,7 +8,7 @@ import ApiKey from './routes/ApiKey';
 
 const App = () => {
   return (
-    <div css={{ position: 'relative' }}>
+    <div css={{ position: 'relative'}}>
       <Router>
         <Nav />
         <div css={{ padding: '24px' }}>
@@ -22,6 +22,17 @@ const App = () => {
           </Switch>
         </div>
       </Router>
+      <footer
+        css={{
+          margin: '24px 0',
+          color: '#707070',
+          textAlign: 'center',
+          textTransform: 'capitalize',
+          font: 'normal normal normal 14px/16px PT Sans',
+        }}
+      >
+        © 2020 open song database API
+      </footer>
     </div>
   );
 };
