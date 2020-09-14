@@ -2,9 +2,13 @@
 import { jsx } from '@emotion/core';
 import Page from '../../components/Page';
 import Prism from 'prismjs';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import Code from '../../components/Code';
+import { AppContext } from '../../components/AppContext';
 
 const GetAlbumData = () => {
+  const { rest } = useContext(AppContext);
+
   useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -13,18 +17,35 @@ const GetAlbumData = () => {
       <Page
         title='get album data'
         content={
-          <div className='line-numbers language-js'>
-            Get Album Data To get album data, make the following{' '}
-            <code>GET</code> request
-            <pre>
-              <code>{`https://osdbapi.com/api/<your-api-token>/album/<album-id>/`}</code>
-            </pre>
-            The above returns album metadata without the songs
-            <pre>
-              <code>{`https://osdbapi.com/api/<your-api-token>/album/<album-id>/song`}</code>
-            </pre>
-            The above returns the album metadata as well as the songs in the
-            album
+          <div>
+            <h3>REST</h3>
+            <div className='line-numbers language-js'>
+              Get Album Data To get album data, make the following{' '}
+              <code>GET</code> request
+              <Code
+                content={`\n${rest}/<your-api-token>/album/<album-id>/`}
+              />
+              The above returns album metadata without the songs
+              <Code
+                content={`\n${rest}/<your-api-token>/album/<album-id>/song`}
+              />
+              The above returns the album metadata as well as the songs in the
+              album
+            </div>
+            <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
+            <div className='line-numbers language-js'>
+              <Code
+                content={`
+query {
+  album(id: "<album-id>") {
+    id
+    name
+    year
+    cover
+  }
+}`}
+              />
+            </div>
           </div>
         }
       />

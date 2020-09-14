@@ -2,9 +2,13 @@
 import { jsx } from '@emotion/core';
 import Page from '../../components/Page';
 import Prism from 'prismjs';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import Code from '../../components/Code';
+import { AppContext } from '../../components/AppContext';
 
 const AlbumSearch = () => {
+  const { rest } = useContext(AppContext);
+
   useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -13,14 +17,31 @@ const AlbumSearch = () => {
       <Page
         title='album search'
         content={
-          <div className='line-numbers language-js'>
-            Album Search To search for albums make the following <code>GET</code> request to
-            this endpoint
-            <pre>
-              <code>{`https://osdbapi.com/api/<your-api-token>/search/album?query=<album-name>&limit=<number-of-search-results-to-return>`}</code>
-            </pre>
-            This above returns an array of album metadata. Please note that the
-            songs are not returned
+          <div>
+            <h3>REST</h3>
+            <div className='line-numbers language-js'>
+              Album Search To search for albums make the following{' '}
+              <code>GET</code> request to this endpoint
+              <Code
+                content={`\n${rest}/<your-api-token>/search/album?query=<album-name>&limit=<number-of-results>`}
+              />
+              This above returns an array of album metadata. Please note that
+              the songs are not returned
+            </div>
+            <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
+            <div className='line-numbers language-js'>
+              <Code
+                content={`
+query {
+  searchAlbum(input: { query: "<album-name>", limit: <number-of-results> }) {
+    id
+    name
+    year
+    cover
+  }
+}`}
+              />
+            </div>
           </div>
         }
       />

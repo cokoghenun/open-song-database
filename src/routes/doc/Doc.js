@@ -26,10 +26,10 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
     >
       <div
         css={{
+          top: 'auto',
           position: 'sticky',
-          height: 'min-content',
-          top: '200px',
           marginRight: '24px',
+          height: 'min-content',
         }}
       >
         <Aside />

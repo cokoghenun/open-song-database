@@ -2,9 +2,13 @@
 import { jsx } from '@emotion/core';
 import Page from '../../components/Page';
 import Prism from 'prismjs';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import Code from '../../components/Code';
+import { AppContext } from '../../components/AppContext';
 
 const PagingAlbum = () => {
+  const { rest } = useContext(AppContext);
+
   useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -13,19 +17,36 @@ const PagingAlbum = () => {
       <Page
         title='paging albums'
         content={
-          <div className='line-numbers language-js'>
-            Paging Albums You can page through the entire albums in the database
-            by sending a <code>GET</code> request to this endpoint
-            <pre>
-              <code>{`https://osdbapi.com/api/<your-api-token>/album?page=<page-number>&limit=<number-of-albums-to-return>`}</code>
-            </pre>
-            Please note that the above request does not return the song data in
-            each album, it only returns an array of album with their metadata.
-            To return an array of albums with their songs, make a request to
-            this endpoint
-            <pre>
-              <code>{`https://osdbapi.com/api/<your-api-token>/album/song?page=<page-number>&limit=<number-of-albums-to-return>`}</code>
-            </pre>
+          <div>
+            <h3>REST</h3>
+            <div className='line-numbers language-js'>
+              Paging Albums You can page through the entire albums in the
+              database by sending a <code>GET</code> request to this endpoint
+              <Code
+                content={`\n${rest}/<your-api-token>/album?page=<page-number>&limit=<number-of-results>`}
+              />
+              Please note that the above request does not return the song data
+              in each album, it only returns an array of album with their
+              metadata. To return an array of albums with their songs, make a
+              request to this endpoint
+              <Code
+                content={`\n${rest}/<your-api-token>/album/song?page=<page-number>&limit=<number-of-results>`}
+              />
+            </div>
+            <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
+            <div className='line-numbers language-js'>
+              <Code
+                content={`
+query {
+  albums(input: { page: <page-number>, limit: <number-of-results> }) {
+    id
+    name
+    year
+    cover
+  }
+}`}
+              />
+            </div>
           </div>
         }
       />

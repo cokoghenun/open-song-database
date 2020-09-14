@@ -7,17 +7,17 @@ const Nav = () => {
     <nav
       css={{
         top: '0',
+        zIndex: '10',
         color: '#fff',
-        height: '96px',
+        padding: '20px',
         display: 'flex',
         position: 'sticky',
-        padding: '0 20px',
         alignItems: 'center',
         justifyContent: 'space-between',
         background: '#354F52 0% 0% no-repeat padding-box',
       }}
     >
-      <div css={{ font: 'normal normal 40px/52px PT Sans' }}>
+      <div css={{ font: 'normal normal 30px/42px PT Sans' }}>
         <span css={{ fontWeight: 'bold' }}>Open Song Database</span> API
       </div>
       <ul

@@ -2,9 +2,12 @@
 import { jsx } from '@emotion/core';
 import Page from '../../components/Page';
 import Prism from 'prismjs';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { AppContext } from '../../components/AppContext';
+import Code from '../../components/Code';
 
 const GenerateApiToken = ({ match }) => {
+  const { base } = useContext(AppContext);
   useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -13,19 +16,18 @@ const GenerateApiToken = ({ match }) => {
       <Page
         title='generate API token'
         content={
-          <div className='line-numbers language-js'>
+          <div className='line-numbers language-js' css={{ marginTop: '24px' }}>
             Generating API Token To create a user account send a{' '}
-            <code>POST</code> request to <code>https://osdbapi.com/join</code>
+            <code>POST</code> request to <code>{base}/token</code>
             with the following body
-            <pre>
-              <code>
-                {`{
+            <Code
+              content={`
+{
   "email": "john@doe.com",
   "firstname": "John",
   "lastname": "Doe",
 }`}
-              </code>
-            </pre>
+            />
             An email would be sent which contains the API <code>TOKEN</code>
           </div>
         }
