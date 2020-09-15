@@ -7,7 +7,7 @@ import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
 
 const SongSearch = () => {
-  const { rest } = useContext(AppContext);
+  const { restUrl } = useContext(AppContext);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -23,7 +23,7 @@ const SongSearch = () => {
               Song Search Send the following <code>GET</code> request to search
               for a song
               <Code
-                content={`\n${rest}/<your-api-token>/search/song?query=<song-name>&limit=<number-of-results>`}
+                content={`\n${restUrl}/<your-api-key>/search/song?query=<song-name>&limit=<number-of-results>`}
               />
               The above request returns an array of songs sorted by best match
             </div>

@@ -1,7 +1,7 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
 
-const Info = ({ message }) => {
+const Info = ({ message, warn }) => {
   return (
     <div
       css={{
@@ -23,14 +23,22 @@ const Info = ({ message }) => {
           backgroundColor: '#cad2c5',
         }}
       >
-        <span
-          css={{
-            color: '#354F52',
-            font: 'normal normal bold 25px/16px PT Sans',
-          }}
-        >
-          !
-        </span>
+        {warn ? (
+          <span
+            css={{
+              color: '#354F52',
+              font: 'normal normal bold 25px/16px PT Sans',
+            }}
+          >
+            !
+          </span>
+        ) : (
+          <img
+            src='/image/check.svg'
+            alt='Email sent'
+            css={{ width: '24px' }}
+          />
+        )}
       </div>
       <div
         css={{

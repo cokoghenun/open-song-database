@@ -7,7 +7,7 @@ import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
 
 const PagingAlbum = () => {
-  const { rest } = useContext(AppContext);
+  const { restUrl } = useContext(AppContext);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -23,14 +23,14 @@ const PagingAlbum = () => {
               Paging Albums You can page through the entire albums in the
               database by sending a <code>GET</code> request to this endpoint
               <Code
-                content={`\n${rest}/<your-api-token>/album?page=<page-number>&limit=<number-of-results>`}
+                content={`\n${restUrl}/<your-api-key>/album?page=<page-number>&limit=<number-of-results>`}
               />
               Please note that the above request does not return the song data
               in each album, it only returns an array of album with their
               metadata. To return an array of albums with their songs, make a
               request to this endpoint
               <Code
-                content={`\n${rest}/<your-api-token>/album/song?page=<page-number>&limit=<number-of-results>`}
+                content={`\n${restUrl}/<your-api-key>/album/song?page=<page-number>&limit=<number-of-results>`}
               />
             </div>
             <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>

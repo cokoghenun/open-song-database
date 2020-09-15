@@ -7,7 +7,7 @@ import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
 
 const GetArtistData = () => {
-  const { rest } = useContext(AppContext);
+  const { restUrl } = useContext(AppContext);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -23,17 +23,17 @@ const GetArtistData = () => {
               Get Artist Data To get artist data, which includes albums and
               songs send the following GET request
               <Code
-                content={`\n${rest}/<your-api-token>/artist/<artist-id>/`}
+                content={`\n${restUrl}/<your-api-key>/artist/<artist-id>/`}
               />
               The above returns basic artist information only (i.e artist name)
               <Code
-                content={`\n${rest}/<your-api-token>/artist/<artist-id>/album`}
+                content={`\n${restUrl}/<your-api-key>/artist/<artist-id>/album`}
               />
               The above returns both the artist basic information and an array
               of albums composed by the artist. This includes all relevant album
               metadata without the songs in the album
               <Code
-                content={`\n${rest}/<your-api-token>/artist/<artist-id>/album/song`}
+                content={`\n${restUrl}/<your-api-key>/artist/<artist-id>/album/song`}
               />
               The above returns artist information, album metadata and the songs
               in each album

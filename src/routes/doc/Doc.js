@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import Notes from './Notes';
 import ChangeLog from './ChangeLog';
 import Aside from '../../components/Aside';
-import GenerateApiToken from './GenerateApiToken';
+import GenerateApiKey from './GenerateApiKey';
 import ArtistSearch from './ArtistSearch';
 import AlbumSearch from './AlbumSearch';
 import SongSearch from './SongSearch';
@@ -15,7 +15,7 @@ import GetSongData from './GetSongData';
 
 const Doc = ({ match: { path }, location: { pathname } }) => {
   if (pathname === '/doc' || pathname === '/doc/') {
-    return <Redirect to={`${path}/generatetoken`} />;
+    return <Redirect to={`${path}/generatekey`} />;
   }
   return (
     <div
@@ -34,7 +34,7 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
       >
         <Aside />
       </div>
-      <Route path={`${path}/generatetoken`} component={GenerateApiToken} />
+      <Route path={`${path}/generatekey`} component={GenerateApiKey} />
       <Route path={`${path}/artistsearch`} component={ArtistSearch} />
       <Route path={`${path}/albumsearch`} component={AlbumSearch} />
       <Route path={`${path}/songsearch`} component={SongSearch} />

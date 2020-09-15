@@ -16,7 +16,7 @@ const GetAlbumData = () => {
           <div className='line-numbers language-js'>
             <ol>
               <li>
-                API <code>TOKEN</code> is sent to the registered email address
+                API <code>kEY</code> is sent to the registered email address
               </li>
               <li>
                 The maximum number for the <code>limit</code> query parameter is

@@ -6,19 +6,19 @@ import { useEffect, useContext } from 'react';
 import { AppContext } from '../../components/AppContext';
 import Code from '../../components/Code';
 
-const GenerateApiToken = ({ match }) => {
-  const { base } = useContext(AppContext);
+const GenerateApiKey = ({ match }) => {
+  const { baseUrl } = useContext(AppContext);
   useEffect(() => {
     Prism.highlightAll();
   }, []);
   return (
     <div>
       <Page
-        title='generate API token'
+        title='generate API key'
         content={
           <div className='line-numbers language-js' css={{ marginTop: '24px' }}>
-            Generating API Token To create a user account send a{' '}
-            <code>POST</code> request to <code>{base}/token</code>
+            Generating API Key To create a user account send a{' '}
+            <code>POST</code> request to <code>{baseUrl}/key</code>
             with the following body
             <Code
               content={`
@@ -28,11 +28,11 @@ const GenerateApiToken = ({ match }) => {
   "lastname": "Doe",
 }`}
             />
-            An email would be sent which contains the API <code>TOKEN</code>
+            An email would be sent which contains the API <code>KEY</code>
           </div>
         }
       />
     </div>
   );
 };
-export default GenerateApiToken;
+export default GenerateApiKey;

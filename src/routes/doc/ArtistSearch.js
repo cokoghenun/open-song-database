@@ -7,7 +7,7 @@ import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
 
 const ArtistSearch = () => {
-  const { rest } = useContext(AppContext);
+  const { restUrl } = useContext(AppContext);
   useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -22,7 +22,7 @@ const ArtistSearch = () => {
               Make the following <code>GET</code> request to perform an artist
               search
               <Code
-                content={`\n${rest}/<your-api-token>/search/artist?query=<artist-name>&limit=<number-of-results>`}
+                content={`\n${restUrl}/<your-api-key>/search/artist?query=<artist-name>&limit=<number-of-results>`}
               />
               An array of matching artists excluding their albums and song
             </div>

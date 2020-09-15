@@ -7,7 +7,7 @@ import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
 
 const AlbumSearch = () => {
-  const { rest } = useContext(AppContext);
+  const { restUrl } = useContext(AppContext);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -23,7 +23,7 @@ const AlbumSearch = () => {
               Album Search To search for albums make the following{' '}
               <code>GET</code> request to this endpoint
               <Code
-                content={`\n${rest}/<your-api-token>/search/album?query=<album-name>&limit=<number-of-results>`}
+                content={`\n${restUrl}/<your-api-key>/search/album?query=<album-name>&limit=<number-of-results>`}
               />
               This above returns an array of album metadata. Please note that
               the songs are not returned

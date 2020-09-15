@@ -7,7 +7,7 @@ import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
 
 const GetAlbumData = () => {
-  const { rest } = useContext(AppContext);
+  const { restUrl } = useContext(AppContext);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -23,11 +23,11 @@ const GetAlbumData = () => {
               Get Album Data To get album data, make the following{' '}
               <code>GET</code> request
               <Code
-                content={`\n${rest}/<your-api-token>/album/<album-id>/`}
+                content={`\n${restUrl}/<your-api-key>/album/<album-id>/`}
               />
               The above returns album metadata without the songs
               <Code
-                content={`\n${rest}/<your-api-token>/album/<album-id>/song`}
+                content={`\n${restUrl}/<your-api-key>/album/<album-id>/song`}
               />
               The above returns the album metadata as well as the songs in the
               album

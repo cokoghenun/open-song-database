@@ -4,14 +4,21 @@ import { useState } from 'react';
 
 const Form = ({ handleSubmit }) => {
   const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [submited, setSubmited] = useState(false);
   const [description, setDescription] = useState('');
   // const [accountType, setAccountType] = useState('');
 
   const handleForm = (e) => {
     e.preventDefault();
-    handleSubmit({ email, firstName, lastName, description });
+    handleSubmit({
+      email,
+      description,
+      lastname: lastName,
+      firstname: firstName,
+    });
+    setSubmited(true);
   };
   return (
     <form onSubmit={handleForm}>
@@ -108,6 +115,7 @@ const Form = ({ handleSubmit }) => {
         >
           <label htmlFor='email'>Email Address</label>
           <input
+            autoFocus
             value={email}
             onChange={({ target }) => {
               setEmail(target.value);
@@ -138,7 +146,6 @@ const Form = ({ handleSubmit }) => {
               onChange={({ target }) => {
                 setFirstName(target.value);
               }}
-              autoFocus
               type='text'
               id='firstname'
               name='firstname'
@@ -185,26 +192,49 @@ const Form = ({ handleSubmit }) => {
       <div
         css={{
           margin: '24px 0',
+          display: 'flex',
           textAlign: 'center',
-        }}
-      >
-        <input
-          type='submit'
-          value='Submit'
-          css={{
+          justifyContent: 'center',
+          'input, div': {
             color: '#fff',
             width: '184px',
             cursor: 'pointer',
-            padding: '15px 0',
             borderRadius: '5px',
             border: '1px solid transparent',
             background: '#84A98C 0% 0% no-repeat padding-box',
             filter: 'drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.24))',
-            '&:hover': {
-              background: '#354F52',
-            },
-          }}
-        />
+          },
+        }}
+      >
+        {submited ? (
+          <div
+            css={{
+              display: 'flex',
+              padding: '7px 0',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <img
+              alt='loading'
+              src='/image/spinner.svg'
+              css={{
+                width: '30px',
+              }}
+            />
+          </div>
+        ) : (
+          <input
+            type='submit'
+            value='Submit'
+            css={{
+              padding: '15px 0',
+              '&:hover': {
+                background: '#354F52',
+              },
+            }}
+          />
+        )}
       </div>
     </form>
   );

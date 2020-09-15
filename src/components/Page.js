@@ -13,11 +13,11 @@ const Page = ({ title = 'title', content }) => {
     >
       <header
         css={{
-          color: '#fff',
+          color: '#354F52;',
           padding: '12px 24px',
           textTransform: 'capitalize',
           borderRadius: '10px 10px 0px 0px',
-          background: '#CAD2C5 0% 0% no-repeat padding-box',
+          // background: '#CAD2C5 0% 0% no-repeat padding-box',
           font: 'normal normal 800 24px/29px PT Sans',
         }}
       >

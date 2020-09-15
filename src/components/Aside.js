@@ -27,8 +27,8 @@ const Aside = () => {
         }}
       >
         <li>
-          <NavLink exact to='/doc/generatetoken' activeClassName='aside-active'>
-            generate API token
+          <NavLink exact to='/doc/generatekey' activeClassName='aside-active'>
+            generate API key
           </NavLink>
         </li>
         <li>

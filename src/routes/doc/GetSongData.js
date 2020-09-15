@@ -7,7 +7,7 @@ import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
 
 const GetSongData = () => {
-  const { rest } = useContext(AppContext);
+  const { restUrl } = useContext(AppContext);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -25,7 +25,7 @@ const GetSongData = () => {
               following <code>GET</code> request
               <pre>
                 <Code
-                  content={`\n${rest}/<your-api-token>/song/<song-id>/`}
+                  content={`\n${restUrl}/<your-api-key>/song/<song-id>/`}
                 />
               </pre>
               <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
