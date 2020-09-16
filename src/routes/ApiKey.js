@@ -4,6 +4,7 @@ import Info from '../components/Info';
 import Form from '../components/Form';
 import { AppContext } from '../components/AppContext';
 import { useContext, useState } from 'react';
+import mq from '../utils/mq';
 
 const ApiKey = () => {
   const { keyUrl } = useContext(AppContext);
@@ -41,10 +42,13 @@ const ApiKey = () => {
         ) : (
           <div
             css={{
+              width: '100%',
               padding: '24px',
-              width: '700px',
               borderRadius: '10px',
-              boxShadow: '0px 3px 6px #00000029',
+              [mq[1]]: {
+                width: '700px',
+                boxShadow: '0px 3px 6px #00000029',
+              },
             }}
           >
             <div

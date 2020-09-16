@@ -26,7 +26,7 @@ const App = () => {
         </Router>
         <footer
           css={{
-            margin: '24px 0',
+            margin: '30px 0',
             color: '#707070',
             textAlign: 'center',
             textTransform: 'capitalize',

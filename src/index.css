@@ -31,3 +31,7 @@ a {
 a:visited {
   color: inherit;
 }
+.link {
+  text-decoration: underline;
+  text-decoration-color: #354F52;
+}

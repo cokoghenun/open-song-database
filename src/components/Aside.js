@@ -1,6 +1,7 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
 import { NavLink } from 'react-router-dom';
+import mq from '../utils/mq';
 
 const Aside = () => {
   return (
@@ -8,20 +9,26 @@ const Aside = () => {
       <ul
         css={{
           all: 'unset',
+          width: '100%',
           display: 'flex',
           color: '#2F3E46',
           borderRadius: '10px',
-          width: 'fit-content',
           flexDirection: 'column',
           textTransform: 'capitalize',
-          boxShadow: '0px 3px 6px #00000029',
           font: 'normal normal normal 16px/19px PT Sans',
+                [mq[1]]: {
+                  width: 'fit-content',
+                  boxShadow: '0px 3px 6px #00000029',
+                },
           li: {
             all: 'unset',
+            width: 'inherit',
             a: {
-              display: 'inline-block',
-              width: '288px',
+              [mq[1]]: {
+                width: '288px',
+              },
               padding: '24px',
+              display: 'block',
             },
           },
         }}

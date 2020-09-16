@@ -1,6 +1,7 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
 import { NavLink } from 'react-router-dom';
+import mq from '../utils/mq';
 
 const Nav = () => {
   return (
@@ -17,9 +18,29 @@ const Nav = () => {
         background: '#354F52 0% 0% no-repeat padding-box',
       }}
     >
-      <div css={{ font: 'normal normal 30px/42px PT Sans' }}>
-        <span css={{ fontWeight: 'bold' }}>Open Song Database</span> API
-      </div>
+      <NavLink to='/'>
+        <div css={{ font: 'normal normal 30px/42px PT Sans' }}>
+          <span
+            css={{
+              display: 'none',
+              fontWeight: 'bold',
+              [mq[1]]: { display: 'inline-block' },
+            }}
+          >
+            Open Song Database
+          </span>{' '}
+          <span
+            css={{
+              fontWeight: 'bold',
+              display: 'inline-block',
+              [mq[1]]: { display: 'none' },
+            }}
+          >
+            OSDB
+          </span>{' '}
+          API
+        </div>
+      </NavLink>
       <ul
         css={{
           all: 'unset',

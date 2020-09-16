@@ -1,14 +1,18 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
+import mq from '../utils/mq';
 
 const Page = ({ title = 'title', content }) => {
   return (
     <section
       css={{
-        width: '700px',
-        // minHeight: '4000px',
+        width: '100vw',
         borderRadius: '10px',
-        boxShadow: '0px 3px 6px #00000029',
+        [mq[1]]: {
+          width: '700px',
+          boxShadow: '0px 3px 6px #00000029',
+        },
+        // minHeight: '4000px',
       }}
     >
       <header
@@ -23,7 +27,9 @@ const Page = ({ title = 'title', content }) => {
       >
         {title}
       </header>
-      <main css={{ padding: '0 24px 24px', lineHeight: '24px' }}>{content}</main>
+      <main css={{ padding: '0 24px 24px', lineHeight: '24px' }}>
+        {content}
+      </main>
     </section>
   );
 };
