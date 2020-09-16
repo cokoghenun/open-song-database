@@ -64,11 +64,11 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
       <div
         css={{
           zIndex: 10,
-          width: '48px',
+          width: '55px',
           color: '#fff',
           right: '20px',
           bottom: '20px',
-          height: '48px',
+          height: '55px',
           display: 'flex',
           cursor: 'pointer',
           position: 'fixed',
@@ -84,7 +84,7 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
           setShowAside(!showAside);
         }}
       >
-        <span>@</span>
+        <span css={{fontsize:'24px', fontWeight: 'bold'}}>@</span>
       </div>
     </div>
   );

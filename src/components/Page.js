@@ -27,7 +27,7 @@ const Page = ({ title = 'title', content }) => {
       >
         {title}
       </header>
-      <main css={{ padding: '0 24px 24px', lineHeight: '24px' }}>
+      <main css={{ padding: '0 24px 24px', lineHeight: '35px' }}>
         {content}
       </main>
     </section>
