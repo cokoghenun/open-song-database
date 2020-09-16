@@ -14,7 +14,7 @@ const Form = ({ handleSubmit }) => {
     e.preventDefault();
     handleSubmit({
       email,
-      description,
+      use: description,
       lastname: lastName,
       firstname: firstName,
     });
@@ -180,6 +180,7 @@ const Form = ({ handleSubmit }) => {
 
           <textarea
             required
+            maxLength='150'
             id='description'
             name='description'
             value={description}

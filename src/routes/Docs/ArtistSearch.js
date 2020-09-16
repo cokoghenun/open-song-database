@@ -24,7 +24,7 @@ const ArtistSearch = () => {
               <Code
                 content={`\n${restUrl}/<your-api-key>/search/artist?query=<artist-name>&limit=<number-of-results>`}
               />
-              An array of matching artists excluding their albums and song
+              An array of matching artists will be returned, excluding their albums and song
             </div>
             <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
             <div className='line-numbers language-js'>

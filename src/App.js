@@ -1,6 +1,6 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
-import Doc from './routes/doc/Doc';
+import Docs from './routes/Docs/';
 import Nav from './components/Nav';
 import Patron from './routes/Patron';
 import ApiKey from './routes/ApiKey';
@@ -18,7 +18,7 @@ const App = () => {
               <Route exact path='/'>
                 <div>Home</div>
               </Route>
-              <Route path='/doc' component={Doc} />
+              <Route path='/docs' component={Docs} />
               <Route path='/patron' component={Patron} />
               <Route path='/apikey' component={ApiKey} />
             </Switch>

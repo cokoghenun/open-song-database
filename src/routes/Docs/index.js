@@ -16,8 +16,12 @@ import mq from '../../utils/mq';
 import { useState } from 'react';
 
 const Doc = ({ match: { path }, location: { pathname } }) => {
-  const [showAside, setShowAside] = useState(false);
-  if (pathname === '/doc' || pathname === '/doc/') {
+  const viewPort = Math.max(
+    document.documentElement.clientWidth || 0,
+    window.innerWidth || 0
+  );
+  const [showAside, setShowAside] = useState(viewPort > 768 ? true : false);
+  if (pathname === '/docs' || pathname === '/docs/') {
     return <Redirect to={`${path}/generatekey`} />;
   }
   return (
@@ -40,13 +44,18 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
           display: showAside ? 'initial' : 'none',
           [mq[1]]: {
             top: 'auto',
+            width: 'auto',
             position: 'sticky',
             marginRight: '24px',
+            overflowY: 'initial',
             height: 'min-content',
           },
         }}
         onClick={() => {
-          setShowAside(!showAside);
+          if(viewPort <= 768) {
+
+            setShowAside(!showAside);
+          }
         }}
       >
         <Aside />
@@ -84,7 +93,7 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
           setShowAside(!showAside);
         }}
       >
-        <span css={{fontsize:'24px', fontWeight: 'bold'}}>@</span>
+        <span css={{ fontsize: '24px', fontWeight: 'bold' }}>@</span>
       </div>
     </div>
   );

@@ -20,12 +20,12 @@ const GetArtistData = () => {
           <div>
             <h3>REST</h3>
             <div className='line-numbers language-js'>
-              Get Artist Data To get artist data, which includes albums and
-              songs send the following GET request
+              To get artist data, make the following GET request
               <Code
                 content={`\n${restUrl}/<your-api-key>/artist/<artist-id>/`}
               />
-              The above returns basic artist information only (i.e artist name)
+              The above returns basic artist information only (i.e artist name).
+              To get albums and songs by artist, make the below requests
               <Code
                 content={`\n${restUrl}/<your-api-key>/artist/<artist-id>/album`}
               />

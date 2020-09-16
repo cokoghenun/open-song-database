@@ -20,7 +20,7 @@ const SongSearch = () => {
           <div>
             <h3>REST</h3>
             <div className='line-numbers language-js'>
-              Song Search Send the following <code>GET</code> request to search
+              Send the following <code>GET</code> request to search
               for a song
               <Code
                 content={`\n${restUrl}/<your-api-key>/search/song?query=<song-name>&limit=<number-of-results>`}

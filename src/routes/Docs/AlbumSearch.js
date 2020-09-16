@@ -20,13 +20,13 @@ const AlbumSearch = () => {
           <div>
             <h3>REST</h3>
             <div className='line-numbers language-js'>
-              Album Search To search for albums make the following{' '}
+              To search for albums make the following{' '}
               <code>GET</code> request to this endpoint
               <Code
                 content={`\n${restUrl}/<your-api-key>/search/album?query=<album-name>&limit=<number-of-results>`}
               />
-              This above returns an array of album metadata. Please note that
-              the songs are not returned
+              This returns an array of album metadata. Please note that
+              the songs are not included
             </div>
             <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
             <div className='line-numbers language-js'>

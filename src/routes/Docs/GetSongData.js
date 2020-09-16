@@ -21,7 +21,7 @@ const GetSongData = () => {
             <h3>REST</h3>
 
             <div className='line-numbers language-js'>
-              Get Song Data To get the data for a particular song send the
+              To get the data for a particular song send the
               following <code>GET</code> request
               <pre>
                 <Code

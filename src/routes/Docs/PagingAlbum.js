@@ -6,7 +6,7 @@ import { useEffect, useContext } from 'react';
 import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
 
-const GetAlbumData = () => {
+const PagingAlbum = () => {
   const { restUrl } = useContext(AppContext);
 
   useEffect(() => {
@@ -15,29 +15,30 @@ const GetAlbumData = () => {
   return (
     <div>
       <Page
-        title='get album data'
+        title='paging albums'
         content={
           <div>
             <h3>REST</h3>
             <div className='line-numbers language-js'>
-              Get Album Data To get album data, make the following{' '}
-              <code>GET</code> request
+              You can page through the entire albums in the
+              database by sending a <code>GET</code> request to this endpoint
               <Code
-                content={`\n${restUrl}/<your-api-key>/album/<album-id>/`}
+                content={`\n${restUrl}/<your-api-key>/album?page=<page-number>&limit=<number-of-results>`}
               />
-              The above returns album metadata without the songs
+              Please note that the above request does not return the song data
+              in each album, it only returns an array of album with their
+              metadata. To return an array of albums with their songs, make a
+              request to this endpoint
               <Code
-                content={`\n${restUrl}/<your-api-key>/album/<album-id>/song`}
+                content={`\n${restUrl}/<your-api-key>/album/song?page=<page-number>&limit=<number-of-results>`}
               />
-              The above returns the album metadata as well as the songs in the
-              album
             </div>
             <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
             <div className='line-numbers language-js'>
               <Code
                 content={`
 query {
-  album(id: "<album-id>") {
+  albums(input: { page: <page-number>, limit: <number-of-results> }) {
     id
     name
     year
@@ -52,4 +53,4 @@ query {
     </div>
   );
 };
-export default GetAlbumData;
+export default PagingAlbum;

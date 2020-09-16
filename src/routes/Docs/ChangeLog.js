@@ -7,7 +7,7 @@ const ChangeLog = () => {
     <div>
       <Page
         title='change log'
-        content={<div css={{ marginTop: '24px' }}> Nothing to see here.</div>}
+        content={<div css={{ marginTop: '24px' }}> Nothing to see here 🤭</div>}
       />
     </div>
   );

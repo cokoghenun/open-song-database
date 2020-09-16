@@ -22,7 +22,7 @@ const Page = ({ title = 'title', content }) => {
           textTransform: 'capitalize',
           borderRadius: '10px 10px 0px 0px',
           // background: '#CAD2C5 0% 0% no-repeat padding-box',
-          font: 'normal normal 800 24px/29px PT Sans',
+          font: 'normal normal 800 30px/29px PT Sans',
         }}
       >
         {title}

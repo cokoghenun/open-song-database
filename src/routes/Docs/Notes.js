@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core';
 import Page from '../../components/Page';
 import Prism from 'prismjs';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const GetAlbumData = () => {
   useEffect(() => {
@@ -14,9 +15,23 @@ const GetAlbumData = () => {
         title='get album data'
         content={
           <div className='line-numbers language-js'>
-            <ol>
+            <ol
+              css={{
+                li: {
+                  marginTop: '15px',
+                  '&:first-of-type': {
+                    marginTop: '0',
+                  },
+                },
+              }}
+            >
               <li>
-                API <code>kEY</code> is sent to the registered email address
+                Your API <code>kEY</code> is sent to your registered email
+                address.{' '}
+                <Link to='/apikey' className='link'>
+                  Click here
+                </Link>{' '}
+                for registeration
               </li>
               <li>
                 The maximum number for the <code>limit</code> query parameter is

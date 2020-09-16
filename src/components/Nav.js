@@ -55,7 +55,7 @@ const Nav = () => {
         }}
       >
         <li>
-          <NavLink to='/doc' activeClassName='nav-active'>
+          <NavLink to='/docs' activeClassName='nav-active'>
             docs
           </NavLink>
         </li>

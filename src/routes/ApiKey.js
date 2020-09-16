@@ -36,7 +36,7 @@ const ApiKey = () => {
         }}
       >
         {sentEmail ? (
-          <div css={{ marginBottom: '24px', width: '748px' }}>
+          <div css={{ marginBottom: '24px', [mq[1]]: { width: '748px' } }}>
             <Info message={`Your API key has been sent to ${sentEmail}`} />
           </div>
         ) : (
