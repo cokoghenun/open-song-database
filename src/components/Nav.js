@@ -47,9 +47,15 @@ const Nav = () => {
           li: {
             all: 'unset',
             a: {
-              padding: '15px 30px',
+              padding: '15px',
               textTransform: 'capitalize',
               font: 'normal normal 600 16px/19px PT Sans',
+              [mq[0]]: {
+                padding: '15px 30px',
+              },
+              '@media (max-width: 400px)': {
+                padding: '10px',
+              },
             },
           },
         }}

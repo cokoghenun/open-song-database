@@ -4,11 +4,11 @@ import mq from '../utils/mq';
 import { useState, useEffect } from 'react';
 
 const Page = ({ title = 'title', children }) => {
-  const [visibility, setDisplay] = useState('hidden');
+  const [visibility, setVisiblilty] = useState('hidden');
   useEffect(() => {
     setTimeout(() => {
-      setDisplay('visable');
-    }, 100);
+      setVisiblilty('visable');
+    }, 50);
   }, []);
   return (
     <section

@@ -4,7 +4,8 @@ import Docs from './routes/Docs/';
 import Nav from './components/Nav';
 import Patron from './routes/Patron';
 import ApiKey from './routes/ApiKey';
-import {AppContext, vars} from './components/AppContext'
+import NotFound from './components/NotFound';
+import { AppContext, vars } from './components/AppContext';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
               <Route path='/docs' component={Docs} />
               <Route path='/patron' component={Patron} />
               <Route path='/apikey' component={ApiKey} />
+              <Route component={NotFound} />
             </Switch>
           </div>
         </Router>
