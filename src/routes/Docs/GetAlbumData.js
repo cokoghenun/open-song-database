@@ -14,28 +14,23 @@ const GetAlbumData = () => {
   }, []);
   return (
     <div>
-      <Page
-        title='get album data'
-        content={
-          <div>
-            <h3>REST</h3>
-            <div className='line-numbers language-js'>
-              To get album data, make the following{' '}
-              <code>GET</code> request
-              <Code
-                content={`\n${restUrl}/<your-api-key>/album/<album-id>/`}
-              />
-              The above returns album metadata without the songs
-              <Code
-                content={`\n${restUrl}/<your-api-key>/album/<album-id>/song`}
-              />
-              The above returns the album metadata as well as the songs in the
-              album
-            </div>
-            <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
-            <div className='line-numbers language-js'>
-              <Code
-                content={`
+      <Page title='get album data'>
+        <div>
+          <h3>REST</h3>
+          <div className='line-numbers language-js'>
+            To get album data, make the following <code>GET</code> request
+            <Code content={`\n${restUrl}/<your-api-key>/album/<album-id>/`} />
+            The above returns album metadata without the songs
+            <Code
+              content={`\n${restUrl}/<your-api-key>/album/<album-id>/song`}
+            />
+            The above returns the album metadata as well as the songs in the
+            album
+          </div>
+          <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
+          <div className='line-numbers language-js'>
+            <Code
+              content={`
 query {
   album(id: "<album-id>") {
     id
@@ -44,11 +39,10 @@ query {
     cover
   }
 }`}
-              />
-            </div>
+            />
           </div>
-        }
-      />
+        </div>
+      </Page>
     </div>
   );
 };

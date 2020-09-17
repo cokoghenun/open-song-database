@@ -14,24 +14,20 @@ const GetSongData = () => {
   }, []);
   return (
     <div>
-      <Page
-        title='get song data'
-        content={
-          <div>
-            <h3>REST</h3>
+      <Page title='get song data'>
+        <div>
+          <h3>REST</h3>
 
+          <div className='line-numbers language-js'>
+            To get the data for a particular song send the following{' '}
+            <code>GET</code> request
+            <pre>
+              <Code content={`\n${restUrl}/<your-api-key>/song/<song-id>/`} />
+            </pre>
+            <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
             <div className='line-numbers language-js'>
-              To get the data for a particular song send the
-              following <code>GET</code> request
-              <pre>
-                <Code
-                  content={`\n${restUrl}/<your-api-key>/song/<song-id>/`}
-                />
-              </pre>
-              <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
-              <div className='line-numbers language-js'>
-                <Code
-                  content={`
+              <Code
+                content={`
 query {
   song(id: "<song-id>") {
     id
@@ -39,12 +35,11 @@ query {
     duration
   }
 }`}
-                />
-              </div>
+              />
             </div>
           </div>
-        }
-      />
+        </div>
+      </Page>
     </div>
   );
 };

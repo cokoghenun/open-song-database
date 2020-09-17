@@ -14,30 +14,27 @@ const GenerateApiKey = ({ match }) => {
   }, []);
   return (
     <div>
-      <Page
-        title='generate API key'
-        content={
-          <div className='line-numbers language-js' css={{ marginTop: '24px' }}>
-            To generating your API key, simply{' '}
-            <Link to='/apikey' className='link'>
-              click here
-            </Link>{' '}
-            or send a <code>POST</code> request to <code>{baseUrl}/key</code>{' '}
-            with the following body
-            <Code
-              content={`
+      <Page title='generate API key'>
+        <div className='line-numbers language-js' css={{ marginTop: '24px' }}>
+          To generating your API key, simply{' '}
+          <Link to='/apikey' className='link'>
+            click here
+          </Link>{' '}
+          or send a <code>POST</code> request to <code>{baseUrl}/key</code> with
+          the following body
+          <Code
+            content={`
 {
   "lastname": "Doe",
   "firstname": "John",
   "email": "john@doe.com",
   "use": "I want to build the best app ever!"
 }`}
-            />
-            An email would be sent to the registered address containing your API{' '}
-            <code>KEY</code>
-          </div>
-        }
-      />
+          />
+          An email would be sent to the registered address containing your API{' '}
+          <code>KEY</code>
+        </div>
+      </Page>
     </div>
   );
 };

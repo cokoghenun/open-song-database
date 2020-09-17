@@ -14,24 +14,22 @@ const AlbumSearch = () => {
   }, []);
   return (
     <div>
-      <Page
-        title='album search'
-        content={
-          <div>
-            <h3>REST</h3>
-            <div className='line-numbers language-js'>
-              To search for albums make the following{' '}
-              <code>GET</code> request to this endpoint
-              <Code
-                content={`\n${restUrl}/<your-api-key>/search/album?query=<album-name>&limit=<number-of-results>`}
-              />
-              This returns an array of album metadata. Please note that
-              the songs are not included
-            </div>
-            <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
-            <div className='line-numbers language-js'>
-              <Code
-                content={`
+      <Page title='album search'>
+        <div>
+          <h3>REST</h3>
+          <div className='line-numbers language-js'>
+            To search for albums make the following <code>GET</code> request to
+            this endpoint
+            <Code
+              content={`\n${restUrl}/<your-api-key>/search/album?query=<album-name>&limit=<number-of-results>`}
+            />
+            This returns an array of album metadata. Please note that the songs
+            are not included
+          </div>
+          <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
+          <div className='line-numbers language-js'>
+            <Code
+              content={`
 query {
   searchAlbum(input: { query: "<album-name>", limit: <number-of-results> }) {
     id
@@ -40,11 +38,10 @@ query {
     cover
   }
 }`}
-              />
-            </div>
+            />
           </div>
-        }
-      />
+        </div>
+      </Page>
     </div>
   );
 };
