@@ -8,7 +8,10 @@ import { AppContext } from '../components/AppContext';
 
 const ApiKey = () => {
   const { keyUrl } = useContext(AppContext);
-  const [sentEmail, setSentEmail] = useState({ ok: false, email: undefined });
+  const [sentEmail, setSentEmail] = useState({
+    sent: undefined,
+    email: undefined,
+  });
 
   const handleSubmit = async (data) => {
     try {
@@ -35,13 +38,21 @@ const ApiKey = () => {
           flexDirection: 'column',
         }}
       >
-        {sentEmail.ok ? (
+        {sentEmail.sent === true ? (
           <div css={{ marginBottom: '24px', [mq[1]]: { width: '748px' } }}>
             <Info
               message={`Your API key has been sent to ${sentEmail.email}`}
             />
           </div>
-        ) : (
+        ) : null}
+
+        {sentEmail.sent === false ? (
+          <div css={{ marginBottom: '24px', [mq[1]]: { width: '748px' } }}>
+            <Info warn message='Could not send API key' />
+          </div>
+        ) : null}
+
+        {sentEmail.sent === undefined ? (
           <div
             css={{
               width: '100%',
@@ -64,7 +75,7 @@ const ApiKey = () => {
             </div>
             <Form handleSubmit={handleSubmit} />
           </div>
-        )}
+        ) : null}
       </main>
     </section>
   );
