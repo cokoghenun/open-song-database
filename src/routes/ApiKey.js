@@ -1,14 +1,14 @@
 /**  @jsx jsx  */
+import mq from '../utils/mq';
 import { jsx } from '@emotion/core';
 import Info from '../components/Info';
 import Form from '../components/Form';
-import { AppContext } from '../components/AppContext';
 import { useContext, useState } from 'react';
-import mq from '../utils/mq';
+import { AppContext } from '../components/AppContext';
 
 const ApiKey = () => {
   const { keyUrl } = useContext(AppContext);
-  const [sentEmail, setSentEmail] = useState(undefined);
+  const [sentEmail, setSentEmail] = useState({ ok: false, email: undefined });
 
   const handleSubmit = async (data) => {
     try {
@@ -20,7 +20,7 @@ const ApiKey = () => {
         },
       });
       const res = await resData.json();
-      setSentEmail(res.data.email);
+      setSentEmail(res.data);
     } catch (error) {
       console.error({ error });
     }
@@ -35,9 +35,11 @@ const ApiKey = () => {
           flexDirection: 'column',
         }}
       >
-        {sentEmail ? (
+        {sentEmail.ok ? (
           <div css={{ marginBottom: '24px', [mq[1]]: { width: '748px' } }}>
-            <Info message={`Your API key has been sent to ${sentEmail}`} />
+            <Info
+              message={`Your API key has been sent to ${sentEmail.email}`}
+            />
           </div>
         ) : (
           <div

@@ -1,6 +1,7 @@
 /**  @jsx jsx  */
+import mq from '../../utils/mq';
 import { jsx } from '@emotion/core';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import Notes from './Notes';
 import ChangeLog from './ChangeLog';
 import Aside from '../../components/Aside';
@@ -12,8 +13,8 @@ import PagingAlbum from './PagingAlbum';
 import GetArtistData from './GetArtistData';
 import GetAlbumData from './GetAlbumData';
 import GetSongData from './GetSongData';
-import mq from '../../utils/mq';
 import { useState } from 'react';
+import NotFound from '../../components/NotFound';
 
 const Doc = ({ match: { path }, location: { pathname } }) => {
   const viewPort = Math.max(
@@ -52,24 +53,26 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
           },
         }}
         onClick={() => {
-          if(viewPort <= 768) {
-
+          if (viewPort <= 768) {
             setShowAside(!showAside);
           }
         }}
       >
         <Aside />
       </div>
-      <Route path={`${path}/generatekey`} component={GenerateApiKey} />
-      <Route path={`${path}/artistsearch`} component={ArtistSearch} />
-      <Route path={`${path}/albumsearch`} component={AlbumSearch} />
-      <Route path={`${path}/songsearch`} component={SongSearch} />
-      <Route path={`${path}/pagingalbum`} component={PagingAlbum} />
-      <Route path={`${path}/getartistdata`} component={GetArtistData} />
-      <Route path={`${path}/getalbumdata`} component={GetAlbumData} />
-      <Route path={`${path}/getsongdata`} component={GetSongData} />
-      <Route path={`${path}/notes`} component={Notes} />
-      <Route path={`${path}/changelog`} component={ChangeLog} />
+      <Switch>
+        <Route path={`${path}/generatekey`} component={GenerateApiKey} />
+        <Route path={`${path}/artistsearch`} component={ArtistSearch} />
+        <Route path={`${path}/albumsearch`} component={AlbumSearch} />
+        <Route path={`${path}/songsearch`} component={SongSearch} />
+        <Route path={`${path}/pagingalbum`} component={PagingAlbum} />
+        <Route path={`${path}/getartistdata`} component={GetArtistData} />
+        <Route path={`${path}/getalbumdata`} component={GetAlbumData} />
+        <Route path={`${path}/getsongdata`} component={GetSongData} />
+        <Route path={`${path}/notes`} component={Notes} />
+        <Route path={`${path}/changelog`} component={ChangeLog} />
+        <Route component={NotFound} />
+      </Switch>
       <div
         css={{
           zIndex: 10,
