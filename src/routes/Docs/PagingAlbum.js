@@ -40,7 +40,7 @@ query {
     id
     name
     year
-    cover
+    image
   }
 }`}
             />
