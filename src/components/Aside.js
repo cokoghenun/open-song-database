@@ -12,14 +12,15 @@ const Aside = () => {
           width: '100%',
           display: 'flex',
           color: '#2F3E46',
-          borderRadius: '10px',
+          height: '100vh',
           flexDirection: 'column',
           textTransform: 'capitalize',
           font: 'normal normal normal 16px/19px PT Sans',
-                [mq[1]]: {
-                  width: 'fit-content',
-                  boxShadow: '0px 3px 6px #00000029',
-                },
+          [mq[1]]: {
+            paddingTop: '82px',
+            width: 'fit-content',
+            borderRight: '1px solid #dfdfdf',
+          },
           li: {
             all: 'unset',
             width: 'inherit',
@@ -59,7 +60,11 @@ const Aside = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink exact to='/docs/getartistdata' activeClassName='aside-active'>
+          <NavLink
+            exact
+            to='/docs/getartistdata'
+            activeClassName='aside-active'
+          >
             get artist data
           </NavLink>
         </li>

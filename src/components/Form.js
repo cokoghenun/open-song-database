@@ -97,12 +97,16 @@ const Form = ({ handleSubmit }) => {
           'input, textarea': {
             padding: '16px',
             color: '#354F52',
-            borderRadius: '5px',
-            border: '2px solid #C9C9C9',
+            borderRadius: '3px',
+            border: '2px solid #dfdfdf',
             font: 'normal normal normal 16px/20px PT Sans',
             '&::placeholder': {
               color: '#C9C9C9',
             },
+            '&:focus':  {
+              outline: 'none',
+              border: '2px solid #C9C9C9',
+            }
           },
         }}
       >
@@ -200,7 +204,7 @@ const Form = ({ handleSubmit }) => {
             color: '#fff',
             width: '184px',
             cursor: 'pointer',
-            borderRadius: '5px',
+            borderRadius: '3px',
             border: '1px solid transparent',
             background: '#84A98C 0% 0% no-repeat padding-box',
             filter: 'drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.24))',

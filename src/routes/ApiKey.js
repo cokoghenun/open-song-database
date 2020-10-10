@@ -5,6 +5,7 @@ import Info from '../components/Info';
 import Form from '../components/Form';
 import { useContext, useState } from 'react';
 import { AppContext } from '../components/AppContext';
+import Footer from '../components/Footer';
 
 const ApiKey = () => {
   const { keyUrl } = useContext(AppContext);
@@ -29,7 +30,7 @@ const ApiKey = () => {
     }
   };
   return (
-    <section>
+    <section css={{ padding: '24px' }}>
       <main
         css={{
           // maxWidth: '700px',
@@ -57,10 +58,10 @@ const ApiKey = () => {
             css={{
               width: '100%',
               padding: '24px',
-              borderRadius: '10px',
+              borderRadius: '3px',
               [mq[1]]: {
                 width: '700px',
-                boxShadow: '0px 3px 6px #00000029',
+                border: '1px solid #dfdfdf',
               },
             }}
           >
@@ -77,6 +78,7 @@ const ApiKey = () => {
           </div>
         ) : null}
       </main>
+      <Footer />
     </section>
   );
 };

@@ -8,7 +8,7 @@ const Info = ({ message, warn }) => {
         display: 'flex',
         padding: '24px',
         alignItems: 'center',
-        borderRadius: '10px',
+        borderRadius: '3px',
         background: '#EFF1EE 0% 0% no-repeat padding-box',
       }}
     >

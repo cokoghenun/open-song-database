@@ -49,6 +49,7 @@ const Nav = () => {
             a: {
               padding: '15px',
               textTransform: 'capitalize',
+              border: '2px solid transparent',
               font: 'normal normal 600 16px/19px PT Sans',
               [mq[0]]: {
                 padding: '15px 30px',

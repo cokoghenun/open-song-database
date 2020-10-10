@@ -15,6 +15,7 @@ import GetAlbumData from './GetAlbumData';
 import GetSongData from './GetSongData';
 import { useState } from 'react';
 import NotFound from '../../components/NotFound';
+import Footer from '../../components/Footer';
 
 const Doc = ({ match: { path }, location: { pathname } }) => {
   const viewPort = Math.max(
@@ -28,26 +29,23 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
   return (
     <div
       css={{
-        display: 'flex',
-        // position: 'relative',
-        justifyContent: 'center',
+        position: 'relative',
       }}
     >
       <div
         css={{
-          zIndex: 5,
-          top: '82px',
+          top: '0',
+          left: '0',
+          zIndex: '10',
           width: '100vw',
           position: 'fixed',
           background: '#fff',
           overflowY: 'scroll',
-          height: 'calc(100vh - 82px)',
+          backgroundColor: '#fff',
           display: showAside ? 'initial' : 'none',
           [mq[1]]: {
-            top: 'auto',
-            width: 'auto',
-            position: 'sticky',
-            marginRight: '24px',
+            zIndex: '1',
+            width: 'initial',
             overflowY: 'initial',
             height: 'min-content',
           },
@@ -60,19 +58,35 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
       >
         <Aside />
       </div>
-      <Switch>
-        <Route path={`${path}/generatekey`} component={GenerateApiKey} />
-        <Route path={`${path}/artistsearch`} component={ArtistSearch} />
-        <Route path={`${path}/albumsearch`} component={AlbumSearch} />
-        <Route path={`${path}/songsearch`} component={SongSearch} />
-        <Route path={`${path}/pagingalbum`} component={PagingAlbum} />
-        <Route path={`${path}/getartistdata`} component={GetArtistData} />
-        <Route path={`${path}/getalbumdata`} component={GetAlbumData} />
-        <Route path={`${path}/getsongdata`} component={GetSongData} />
-        <Route path={`${path}/notes`} component={Notes} />
-        <Route path={`${path}/changelog`} component={ChangeLog} />
-        <Route component={NotFound} />
-      </Switch>
+      <div
+        css={{
+          top: 0,
+
+          position: 'absolute',
+          height: 'calc(100vh - 106px)',
+          width: '100%',
+
+          [mq[1]]: {
+            left: '360px',
+            width: 'calc(100% - 360px)',
+          },
+        }}
+      >
+        <Switch>
+          <Route path={`${path}/generatekey`} component={GenerateApiKey} />
+          <Route path={`${path}/artistsearch`} component={ArtistSearch} />
+          <Route path={`${path}/albumsearch`} component={AlbumSearch} />
+          <Route path={`${path}/songsearch`} component={SongSearch} />
+          <Route path={`${path}/pagingalbum`} component={PagingAlbum} />
+          <Route path={`${path}/getartistdata`} component={GetArtistData} />
+          <Route path={`${path}/getalbumdata`} component={GetAlbumData} />
+          <Route path={`${path}/getsongdata`} component={GetSongData} />
+          <Route path={`${path}/notes`} component={Notes} />
+          <Route path={`${path}/changelog`} component={ChangeLog} />
+          <Route component={NotFound} />
+        </Switch>
+        <Footer />
+      </div>
       <div
         css={{
           zIndex: 10,
