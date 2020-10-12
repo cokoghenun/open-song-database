@@ -214,6 +214,7 @@ const Form = ({ handleSubmit }) => {
         {submited ? (
           <div
             css={{
+              height: '30px',
               display: 'flex',
               padding: '7px 0',
               alignItems: 'center',
