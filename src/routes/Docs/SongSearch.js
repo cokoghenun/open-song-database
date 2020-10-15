@@ -7,7 +7,7 @@ import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
 
 const SongSearch = () => {
-  const { restUrl } = useContext(AppContext);
+  const { restUrl, gqlUrl } = useContext(AppContext);
 
   useEffect(() => {
     Prism.highlightAll();
@@ -26,6 +26,13 @@ const SongSearch = () => {
           </div>
           <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
           <div className='line-numbers language-js'>
+            <p>
+              <code>GRAPHQL</code>
+              <span css={{ display: 'inline-block', margin: '0 1rem' }}>
+                endpoint is
+              </span>
+              <code>{gqlUrl + '/<your-api-key>/'}</code>
+            </p>
             <Code
               content={`
 query {
