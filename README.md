@@ -1,7 +1,12 @@
 # Open Song Database API (frontend)
-This project was bootstrapped with Create React App
-## Available Scripts
+Welcome to the Open Song Database API. <br >
+Back-end repo is [here](https://github.com/cokoghenun/open-song-database-api)
 
+## Contributions
+Your contributions are highly welcomed.
+
+## Scripts
+This project was bootstrapped with Create React App. <br >
 In the project directory, you can run:
 
 ### `yarn start`
