@@ -11,7 +11,7 @@ const GetAlbumData = () => {
   }, []);
   return (
     <div>
-      <Page title='get album data'>
+      <Page title='Notes'>
         <div className='line-numbers language-js'>
           <ol
             css={{
@@ -29,7 +29,7 @@ const GetAlbumData = () => {
               <Link to='/apikey' className='link'>
                 Click here
               </Link>{' '}
-              for registeration
+              for registration
             </li>
             <li>
               The maximum number for the <code>limit</code> query parameter is

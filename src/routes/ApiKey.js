@@ -74,6 +74,10 @@ const ApiKey = () => {
             >
               generate API key
             </div>
+            <p css={{ color: '#404040', marginTop: '30px' }}>
+              Your uniquely generated API key would be sent to your email
+              address on successful registration
+            </p>
             <Form handleSubmit={handleSubmit} />
           </div>
         ) : null}

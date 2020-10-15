@@ -16,7 +16,7 @@ const GenerateApiKey = ({ match }) => {
     <div>
       <Page title='generate API key'>
         <div className='line-numbers language-js' css={{ marginTop: '24px' }}>
-          To generating your API key, simply{' '}
+          To generate your API key, simply{' '}
           <Link to='/apikey' className='link'>
             click here
           </Link>{' '}

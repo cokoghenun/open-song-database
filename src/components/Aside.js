@@ -35,6 +35,11 @@ const Aside = () => {
         }}
       >
         <li>
+          <NavLink exact to='/docs/contribute' activeClassName='aside-active'>
+            contribute
+          </NavLink>
+        </li>
+        <li>
           <NavLink exact to='/docs/generatekey' activeClassName='aside-active'>
             generate API key
           </NavLink>

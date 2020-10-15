@@ -4,6 +4,36 @@ import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import mq from '../utils/mq';
 
+const Card = ({ image, title, body }) => (
+  <div
+    css={{
+      width: '100%',
+      margin: '10px 0',
+      borderRadius: '3px',
+      padding: '24px 24px 66px',
+      border: '1px solid #dfdfdf',
+      [mq[1]]: { margin: '10px', width: '25%' },
+    }}
+  >
+    <img
+      css={{ width: '32px', height: '32px' }}
+      src={`/image/${image}`}
+      alt='documentation'
+    />
+    <div
+      css={{
+        margin: '1rem 0',
+        fontWeight: '500',
+        fontSize: '1.5rem',
+        textTransform: 'capitalize',
+      }}
+    >
+      {title}
+    </div>
+    <p>{body}</p>
+  </div>
+);
+
 const Home = () => {
   return (
     <div
@@ -49,6 +79,7 @@ const Home = () => {
                 display: 'none',
               },
               [mq[1]]: {
+                textAlign: 'left',
                 fontSize: '56px',
                 br: {
                   display: 'block',
@@ -56,8 +87,9 @@ const Home = () => {
               },
             }}
           >
-            Discover millions of music, <br />
-            lyrics and cover art easy.
+            Empower your apps
+            <br /> with the world’s largest
+            <br /> music database
           </div>
           <Link to='/apikey'>
             <div
@@ -123,36 +155,44 @@ const Home = () => {
               css={{
                 width: '100%',
                 [mq[1]]: {
-                  width: '40%',
+                  width: '45%',
                 },
               }}
             >
               <div css={{ fontWeight: '500', fontSize: '1.5rem' }}>
-                Discover lots of music information fast.
+                Get lots of music data, fast.
               </div>
               <p>
-                With Feed.fm’s Music APIs and SDKs for JavaScript, iOS, and
-                Android you can develop unique music experiences in a matter of
-                minutes.
+                With the Open Song Database API you can develop unique music
+                experiences in a matter of minutes.
               </p>
               <p>
-                Feed.fm’s SDKs allow you to easily integrate major label music
-                in your mobile apps or web applications unlike other music
-                providers. If you’re looking at the Apple Music API or Spotify
-                Music API, they simply offer a connection into a user’s existing
-                catalogue.
+                This API allows you to integrate with any platform(web, Android,
+                iOS, Windows, Mac and Linux) you are building for over HTTPS and
+                allows you to access millions of songs, albums, artist and music
+                genres.
               </p>
-            </div>
-            <img
+            </div>{' '}
+            <div
               css={{
                 width: '100%',
                 [mq[1]]: {
-                  width: '50%',
+                  width: '45%',
                 },
               }}
-              src='/image/apis.png'
-              alt='api'
-            />
+            >
+              <div css={{ fontWeight: '500', fontSize: '1.5rem' }}>
+                Forever Free and Open Source.
+              </div>
+              <p>
+                The Open Song Database API is completely free and would remain
+                the same forever. It is Open Source too, making it possible to
+                make direct contributions to the project or starting a spinoff.
+              </p>
+              <p>
+                The API allow you to access data via REST or GRAPHQL. Sweet!
+              </p>
+            </div>
           </div>
         </div>
 
@@ -171,97 +211,31 @@ const Home = () => {
           >
             features
           </div>
-          <div css={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', [mq[1]]:  {flexWrap: 'nowrap'} }}>
-            <div
-              css={{
-                width: '100%',
-                margin: '10px 0',
-                [mq[1]]: { margin: '10px',width: '25%' },
-                borderRadius: '3px',
-                padding: '24px 24px 66px',
-                border: '1px solid #dfdfdf',
-              }}
-            >
-              <img
-                css={{ width: '32px', height: '32px' }}
-                src='/image/draft.svg'
-                alt='documentation'
-              />
-              <div
-                css={{
-                  fontSize: '1.5rem',
-                  margin: '1rem 0',
-                  fontWeight: '500',
-                  textTransform: 'capitalize',
-                }}
-              >
-                API documentation
-              </div>
-              <p>
-                Find out how to make use of the API to get all you need to start
-                working with music information for your project.
-              </p>
-            </div>
-            <div
-              css={{
-                width: '100%',
-                margin: '10px 0',
-                [mq[1]]: { margin: '10px',width: '25%' },
-                borderRadius: '3px',
-                padding: '24px 24px 66px',
-                border: '1px solid #dfdfdf',
-              }}
-            >
-              <img
-                css={{ width: '32px', height: '32px' }}
-                src='/image/bug.svg'
-                alt='testground'
-              />
-              <div
-                css={{
-                  fontSize: '1.5rem',
-                  margin: '1rem 0',
-                  fontWeight: '500',
-                  textTransform: 'capitalize',
-                }}
-              >
-                API testground
-              </div>
-              <p>
-                Our testground lets you quickly test our API and play with the
-                formatted response you’ll get for each call.
-              </p>
-            </div>
-            <div
-              css={{
-                width: '100%',
-                margin: '10px 0',
-                [mq[1]]: { margin: '10px',width: '25%' },
-                borderRadius: '3px',
-                padding: '24px 24px 66px',
-                border: '1px solid #dfdfdf',
-              }}
-            >
-              <img
-                css={{ width: '32px', height: '32px' }}
-                src='/image/device.svg'
-                alt='sdks'
-              />
-              <div
-                css={{
-                  fontSize: '1.5rem',
-                  margin: '1rem 0',
-                  fontWeight: '500',
-                  textTransform: 'capitalize',
-                }}
-              >
-                SDKs
-              </div>
-              <p>
-                The SDKs make it easy to use the Musixmatch API on your website
-                or application for iOS and Android
-              </p>
-            </div>
+          <div
+            css={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              [mq[1]]: { flexWrap: 'nowrap' },
+            }}
+          >
+            <Card
+              image='draft.svg'
+              title='API documentation'
+              body='Our highly maintained and detailed API documentation contains everything you need to know to integrate our API with your project'
+            />
+            <Card
+              image='bug.svg'
+              title='API testground'
+              body='Our testground lets you quickly test our API endpoints and play with the
+              formatted response for each call (coming soon)'
+            />
+            <Card
+              image='device.svg'
+              title='SDKs'
+              body='The SDKs make it easy to use the our API on your web app
+              or native application for Android, iOS, Windows, Mac and Linux (coming soon)'
+            />
           </div>
           <div css={{ marginTop: '3rem', width: '100%' }}>
             <Link

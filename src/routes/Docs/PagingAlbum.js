@@ -24,7 +24,7 @@ const PagingAlbum = () => {
               content={`\n${restUrl}/<your-api-key>/album?page=<page-number>&limit=<number-of-results>`}
             />
             Please note that the above request does not return the song data in
-            each album, it only returns an array of album with their metadata.
+            each album, it only returns an array of albums with their metadata.
             To return an array of albums with their songs, make a request to
             this endpoint
             <Code

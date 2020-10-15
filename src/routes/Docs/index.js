@@ -16,6 +16,7 @@ import GetSongData from './GetSongData';
 import { useState } from 'react';
 import NotFound from '../../components/NotFound';
 import Footer from '../../components/Footer';
+import Contribute from './Contribute';
 
 const Doc = ({ match: { path }, location: { pathname } }) => {
   const viewPort = Math.max(
@@ -24,7 +25,7 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
   );
   const [showAside, setShowAside] = useState(viewPort > 768 ? true : false);
   if (pathname === '/docs' || pathname === '/docs/') {
-    return <Redirect to={`${path}/generatekey`} />;
+    return <Redirect to={`${path}/contribute`} />;
   }
   return (
     <div
@@ -46,6 +47,7 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
           [mq[1]]: {
             zIndex: '1',
             width: 'initial',
+            display: 'initial',
             overflowY: 'initial',
             height: 'min-content',
           },
@@ -73,6 +75,7 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
         }}
       >
         <Switch>
+          <Route path={`${path}/contribute`} component={Contribute} />
           <Route path={`${path}/generatekey`} component={GenerateApiKey} />
           <Route path={`${path}/artistsearch`} component={ArtistSearch} />
           <Route path={`${path}/albumsearch`} component={AlbumSearch} />
@@ -110,7 +113,13 @@ const Doc = ({ match: { path }, location: { pathname } }) => {
           setShowAside(!showAside);
         }}
       >
-        <span css={{ fontsize: '24px', fontWeight: 'bold' }}>@</span>
+        <img
+          css={{
+            width: '25px',
+          }}
+          src={showAside?'/image/cancel.svg':'/image/menu.svg'}
+          alt='menu'
+        />
       </div>
     </div>
   );
