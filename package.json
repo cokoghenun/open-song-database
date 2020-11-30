@@ -6,6 +6,7 @@
     "@emotion/core": "^10.0.35",
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
+    "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"

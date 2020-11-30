@@ -1,8 +1,9 @@
 /**  @jsx jsx  */
+import mq from '../utils/mq';
 import { jsx } from '@emotion/core';
+import CountUp from 'react-countup';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
-import mq from '../utils/mq';
 
 const Card = ({ image, title, body }) => (
   <div
@@ -34,6 +35,40 @@ const Card = ({ image, title, body }) => (
   </div>
 );
 
+const Count = ({ name, count }) => (
+  <div
+    css={{
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column',
+      marginBottom: '1rem'
+    }}
+  >
+    <div
+      css={{
+        fontSize: '35px',
+      }}
+    >
+      <CountUp end={count} separator=', ' duration={3}/>
+    </div>
+    <div
+      css={{
+        fontSize: '12px',
+        letterSpacing: '2px',
+        textTransform: 'uppercase',
+      }}
+    >
+      {name}
+    </div>
+  </div>
+);
+
+const stats = [
+  { name: 'songs', count: '8329822' },
+  { name: 'albums', count: '831281' },
+  { name: 'artists', count: '506512' },
+  { name: 'genres', count: '420' },
+];
 const Home = () => {
   return (
     <div
@@ -129,6 +164,19 @@ const Home = () => {
           color: '#2F3E46',
         }}
       >
+        <div css={{
+          display: 'flex',
+          marginTop: '2rem',
+          flexDirection: 'column',
+          [mq[1]]: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          },
+        }}>
+          {stats.map(({ name, count }) => (
+            <Count name={name} count={count} />
+          ))}
+        </div>
         <div>
           <div
             css={{
