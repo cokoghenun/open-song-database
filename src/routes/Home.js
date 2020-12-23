@@ -41,7 +41,7 @@ const Count = ({ name, count }) => (
       display: 'flex',
       alignItems: 'center',
       flexDirection: 'column',
-      marginBottom: '1rem'
+      marginBottom: '1rem',
     }}
   >
     <div
@@ -49,7 +49,7 @@ const Count = ({ name, count }) => (
         fontSize: '35px',
       }}
     >
-      <CountUp end={count} separator=', ' duration={3}/>
+      <CountUp end={count} separator=', ' duration={3} />
     </div>
     <div
       css={{
@@ -64,10 +64,10 @@ const Count = ({ name, count }) => (
 );
 
 const stats = [
-  { name: 'songs', count: '8329822' },
-  { name: 'albums', count: '831281' },
-  { name: 'artists', count: '506512' },
-  { name: 'genres', count: '420' },
+  { name: 'songs', count: 8329822 },
+  { name: 'albums', count: 831281 },
+  { name: 'artists', count: 506512 },
+  { name: 'genres', count: 420 },
 ];
 const Home = () => {
   return (
@@ -164,17 +164,19 @@ const Home = () => {
           color: '#2F3E46',
         }}
       >
-        <div css={{
-          display: 'flex',
-          marginTop: '2rem',
-          flexDirection: 'column',
-          [mq[1]]: {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          },
-        }}>
-          {stats.map(({ name, count }) => (
-            <Count name={name} count={count} />
+        <div
+          css={{
+            display: 'flex',
+            marginTop: '2rem',
+            flexDirection: 'column',
+            [mq[1]]: {
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            },
+          }}
+        >
+          {stats.map(({ name, count }, i) => (
+            <Count key={i} name={name} count={count} />
           ))}
         </div>
         <div>

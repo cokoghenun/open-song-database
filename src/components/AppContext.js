@@ -1,10 +1,12 @@
 import React from 'react';
 
+const backend = process.env.REACT_APP_BACKEND;
+
 export const vars = {
-  baseUrl: 'https://api.osdbapi.com',
-  restUrl: 'https://api.osdbapi.com/rest',
-  gqlUrl: 'https://api.osdbapi.com/graphql',
-  keyUrl: 'https://api.osdbapi.com/key',
+  baseUrl: backend,
+  restUrl: `${backend}/rest`,
+  gqlUrl: `${backend}/graphql`,
+  keyUrl: `${backend}/key`,
 };
 
 export const AppContext = React.createContext(vars);
