@@ -7,12 +7,11 @@ const ChangeLog = () => {
     <div>
       <Page title='change log' content=''>
         <div css={{ marginTop: '24px' }}>
-          {' '}
-          Nothing to see here{' '}
-          <span role='img' aria-label='blush'>
-            🤭
-          </span>
-        </div>
+          v1.1
+          <ul>
+            <li>Adds playground</li>
+          </ul>
+          </div>
       </Page>
     </div>
   );

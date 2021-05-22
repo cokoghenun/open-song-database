@@ -9,11 +9,12 @@ import Button from '../components/Button';
 import mq from '../utils/mq';
 import Info from '../components/Info';
 
-const PlayGround = () => {
-  const [query, setQuery] = useState('');
+const PlayGround = ({location: {search}}) => {
+  const _search = new URLSearchParams(search);
+  const [query, setQuery] = useState(_search.get('query') || '');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
-  const [queryType, setQueryType] = useState('rest');
+  const [queryType, setQueryType] = useState(_search.get('qType') || 'rest');
   const [status, setStatus] = useState({ status: null, text: null });
   const { playgroundBackend, playgroundToken } = useContext(AppContext);
 
@@ -56,25 +57,26 @@ const PlayGround = () => {
     <section css={{ padding: '24px' }}>
       <main
         css={{
-          // maxWidth: '700px',
           display: 'flex',
           alignItems: 'center',
           flexDirection: 'column',
         }}
       >
-        <header
-          css={{
-            alignSelf: 'left',
-            color: '#354F52;',
-            padding: '12px 0',
-            textTransform: 'capitalize',
-            borderRadius: '10px 10px 0px 0px',
-            font: 'normal normal 800 30px/29px PT Sans',
-          }}
-        >
-          PlayGround
-        </header>
         <div css={{ width: '100%' }}>
+          <header
+            css={{
+              color: '#354F52;',
+              padding: '12px 0',
+              textTransform: 'capitalize',
+              borderRadius: '10px 10px 0px 0px',
+              font: 'normal normal 800 30px/29px PT Sans',
+              [mq[1]]: {
+                textAlign: 'center',
+              },
+            }}
+          >
+            PlayGround
+          </header>
           <form
             onSubmit={runQuery}
             css={{
@@ -116,10 +118,11 @@ const PlayGround = () => {
                 flexDirection: 'column',
               }}
             >
-              <label htmlFor='queryType'>Select Query</label>
+              <label htmlFor='queryType'>Select API type</label>
               <select
-                name='queryType'
                 id='queryType'
+                name='queryType'
+                value={queryType}
                 onChange={({ target }) => setQueryType(target.value)}
                 css={{
                   width: '100%',
@@ -144,7 +147,6 @@ const PlayGround = () => {
                 display: 'flex',
                 margin: '24px 0',
                 flexDirection: 'column',
-
                 [mq[1]]: {
                   margin: '24px 10px',
                 },
@@ -158,12 +160,12 @@ const PlayGround = () => {
               {queryType === 'rest' ? (
                 <input
                   autoFocus
-                  value={query}
-                  onChange={({ target }) => setQuery(target.value)}
+                  required
                   id='query'
                   type='text'
                   name='query'
-                  required
+                  value={query}
+                  onChange={({ target }) => setQuery(target.value)}
                   placeholder='/search/artist?query=sia&limit=10'
                 />
               ) : (
@@ -184,7 +186,7 @@ const PlayGround = () => {
               )}
             </div>
             <div css={{ marginTop: '23px' }}>
-              <Button loading={loading} text='Run' _css={{ height: '60px' }} />
+              <Button loading={loading} text='Run' />
             </div>
           </form>
 
@@ -192,14 +194,14 @@ const PlayGround = () => {
             <div>
               <div css={{ display: 'flex', justifyContent: 'center' }}>
                 <Info
-                  message={status.status + ' ' + status.text}
-                  warn={status.status !== 200 ? true : false}
                   _css={{
                     width: 'calc(100vw - 50px)',
                     [mq[1]]: {
                       width: '572px',
                     },
                   }}
+                  message={status.status + ' ' + status.text}
+                  warn={status.status !== 200 ? true : false}
                 />
               </div>
 
@@ -211,7 +213,6 @@ const PlayGround = () => {
                   }}
                 ></div>
                 <div
-                  className='line-numbers language-json'
                   css={{
                     color: 'white',
                     width: 'calc(100vw - 50px)',
@@ -220,6 +221,7 @@ const PlayGround = () => {
                       width: '600px',
                     },
                   }}
+                  className='line-numbers language-json'
                 >
                   <Code content={response} />
                 </div>

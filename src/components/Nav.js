@@ -16,10 +16,21 @@ const Nav = () => {
         alignItems: 'center',
         justifyContent: 'space-between',
         background: '#354F52 0% 0% no-repeat padding-box',
+        '@media (max-width: 470px)': {
+          flexWrap: 'wrap',
+          paddingTop: '10px',
+        },
       }}
     >
       <NavLink to='/'>
-        <div css={{ font: 'normal normal 30px/42px PT Sans' }}>
+        <div
+          css={{
+            font: 'normal normal 30px/42px PT Sans',
+            '@media (max-width: 470px)': {
+              marginBottom: '20px',
+            },
+          }}
+        >
           <span
             css={{
               display: 'none',
@@ -48,7 +59,7 @@ const Nav = () => {
             all: 'unset',
             a: {
               padding: '15px',
-              textTransform: 'capitalize',
+              textTransform: 'uppercase',
               border: '2px solid transparent',
               font: 'normal normal 600 16px/19px PT Sans',
               [mq[0]]: {
@@ -64,6 +75,11 @@ const Nav = () => {
         <li>
           <NavLink to='/docs' activeClassName='nav-active'>
             docs
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/playground' activeClassName='nav-active'>
+            playground
           </NavLink>
         </li>
 

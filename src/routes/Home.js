@@ -83,7 +83,7 @@ const Home = () => {
           position: 'relative',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          backgroundImage: 'url("/image/hero.png")',
+          backgroundImage: 'url("/image/hero.jpg")',
           [mq[1]]: {},
         }}
       >

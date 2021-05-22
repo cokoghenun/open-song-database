@@ -1,10 +1,11 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
 
-const Button = ({loading, text, _css}) => {
+const Button = ({loading, text}) => {
   return (
     <div
       css={{
+        height: '60px',
         margin: '24px 0',
         display: 'flex',
         textAlign: 'center',
@@ -18,13 +19,12 @@ const Button = ({loading, text, _css}) => {
           background: '#84A98C 0% 0% no-repeat padding-box',
           filter: 'drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.24))',
         },
-        ..._css
       }}
     >
       {loading ? (
         <div
           css={{
-            height: '30px',
+            height: '45px',
             display: 'flex',
             padding: '7px 0',
             alignItems: 'center',

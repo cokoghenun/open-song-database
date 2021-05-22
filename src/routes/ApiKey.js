@@ -69,7 +69,7 @@ const ApiKey = () => {
               css={{
                 color: '#354F52',
                 textTransform: 'capitalize',
-                font: 'normal normal 600 24px/29px PT Sans',
+                font: 'normal normal 800 30px/29px PT Sans',
               }}
             >
               generate API key

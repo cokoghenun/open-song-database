@@ -5,6 +5,7 @@ import Prism from 'prismjs';
 import { useEffect, useContext } from 'react';
 import Code from '../../components/Code';
 import { AppContext } from '../../components/AppContext';
+import PgButton from '../../components/PgButton';
 
 const PagingAlbum = () => {
   const { restUrl, gqlUrl } = useContext(AppContext);
@@ -16,7 +17,10 @@ const PagingAlbum = () => {
     <div>
       <Page title='paging albums'>
         <div>
-          <h3>REST</h3>
+          <h3>
+            <span>REST</span>
+            <PgButton qType='rest' query='/album?page=1&limit=10' />
+          </h3>
           <div className='line-numbers language-js'>
             You can page through the entire albums in the database by sending a{' '}
             <code>GET</code> request to this endpoint
@@ -31,7 +35,18 @@ const PagingAlbum = () => {
               content={`\n${restUrl}/<your-api-key>/album/song?page=<page-number>&limit=<number-of-results>`}
             />
           </div>
-          <h3 css={{ marginTop: '30px' }}>GRAPHQL</h3>
+          <h3 css={{ marginTop: '30px' }}>
+            <span>GRAPHQL</span>
+            <PgButton qType='graphql' query={`
+query {
+  albums(input: { page: 1, limit: 10 }) {
+    id
+    name
+    year
+    image
+  }
+}`} />
+          </h3>
           <div className='line-numbers language-js'>
             <p>
               <code>GRAPHQL</code>

@@ -48,3 +48,8 @@ a:visited {
 ::-webkit-scrollbar-thumb {
   background: #cad2c54d;
 }
+
+h3 {
+  display: flex;
+  align-items: flex-end;
+}
