@@ -36,7 +36,7 @@ const GetAlbumData = () => {
               20. Any value greater than this defaults to 20
             </li>
             <li>
-              The maximum number of request per IP is 1000 within a 24 hour
+              The maximum number of request per IP is <code>10,000</code> within a 24 hour
               period
             </li>
           </ol>
