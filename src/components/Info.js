@@ -1,7 +1,7 @@
 /**  @jsx jsx  */
 import { jsx } from '@emotion/core';
 
-const Info = ({ message, warn }) => {
+const Info = ({ message, warn, _css }) => {
   return (
     <div
       css={{
@@ -10,6 +10,7 @@ const Info = ({ message, warn }) => {
         alignItems: 'center',
         borderRadius: '3px',
         background: '#EFF1EE 0% 0% no-repeat padding-box',
+        ..._css,
       }}
     >
       <div
