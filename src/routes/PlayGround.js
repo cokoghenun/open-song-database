@@ -9,14 +9,14 @@ import Button from '../components/Button';
 import mq from '../utils/mq';
 import Info from '../components/Info';
 
-const PlayGround = ({location: {search}}) => {
+const PlayGround = ({ location: { search } }) => {
+  const { baseUrl } = useContext(AppContext);
   const _search = new URLSearchParams(search);
-  const [query, setQuery] = useState(_search.get('query') || '');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
-  const [queryType, setQueryType] = useState(_search.get('qType') || 'rest');
+  const [query, setQuery] = useState(_search.get('query') || '');
   const [status, setStatus] = useState({ status: null, text: null });
-  const { playgroundBackend, playgroundToken } = useContext(AppContext);
+  const [queryType, setQueryType] = useState(_search.get('qType') || 'rest');
 
   const runQuery = async (e) => {
     e.preventDefault();
@@ -25,11 +25,9 @@ const PlayGround = ({location: {search}}) => {
       let res;
 
       if (queryType === 'rest') {
-        res = await fetch(
-          `${playgroundBackend}/rest/${playgroundToken}/${query}`
-        );
+        res = await fetch(`${baseUrl}/rest/playgroundkey/${query}`);
       } else {
-        res = await fetch(`${playgroundBackend}/graphql/${playgroundToken}/`, {
+        res = await fetch(`${baseUrl}/graphql/playgroundkey/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
