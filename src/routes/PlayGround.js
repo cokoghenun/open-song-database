@@ -16,7 +16,7 @@ const PlayGround = ({ location: { search } }) => {
   const { baseUrl, gqlUrl } = useContext(AppContext);
   const [query, setQuery] = useState(_search.get('query') || '');
   const [status, setStatus] = useState({ status: null, text: null });
-  const [queryType, setQueryType] = useState(_search.get('qType') || 'graphql');
+  const [queryType, setQueryType] = useState(_search.get('qType') || 'rest');
 
   const runQuery = async (e) => {
     e.preventDefault();
