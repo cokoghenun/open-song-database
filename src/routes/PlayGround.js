@@ -49,7 +49,7 @@ const PlayGround = ({ location: { search } }) => {
 
   useEffect(() => {
     Prism.highlightAll();
-  }, [response]);
+  }, [response, queryType]);
 
   return (
     <section css={{ padding: '24px' }}>
@@ -103,7 +103,12 @@ const PlayGround = ({ location: { search } }) => {
               [mq[1]]: {
                 display: 'flex',
                 justifyContent: 'center',
-                'input, textarea': {
+                input: {
+                  width: '40vw',
+                },
+              },
+              '@media (min-width: 1300px)': {
+                textarea: {
                   width: '40vw',
                 },
               },
@@ -169,6 +174,9 @@ const PlayGround = ({ location: { search } }) => {
               ) : (
                 <div>
                   <textarea
+                    css={{
+                      width: 'calc(100% - 36px)',
+                    }}
                     required
                     rows='10'
                     id='query'
@@ -182,10 +190,12 @@ const PlayGround = ({ location: { search } }) => {
 }`}
                     onChange={({ target }) => setQuery(target.value)}
                   ></textarea>
-                  <div css={{fontSize: '0.8rem'}} className='line-numbers language-js'>
-                    Visit {' '}
-                    <code>{gqlUrl + '/<your-api-key>/'}</code>
-                    {' '}to use the GraphiQL explorer
+                  <div
+                    css={{ fontSize: '0.8rem' }}
+                    className='line-numbers language-js'
+                  >
+                    Visit <code>{gqlUrl + '/<your-api-key>/'}</code> to use the
+                    GraphiQL explorer
                   </div>
                 </div>
               )}

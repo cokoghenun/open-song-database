@@ -43,8 +43,12 @@ const Nav = () => {
           <span
             css={{
               fontWeight: 'bold',
+              paddingLeft: '13px',
               display: 'inline-block',
               [mq[1]]: { display: 'none' },
+              '@media (max-width: 400px)': {
+                padding: '8px',
+              },
             }}
           >
             OSDB

@@ -5,7 +5,7 @@ import CountUp from 'react-countup';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 
-const Card = ({ image, title, body }) => (
+const Card = ({ image, title, body, link }) => (
   <div
     css={{
       width: '100%',
@@ -21,16 +21,19 @@ const Card = ({ image, title, body }) => (
       src={`/image/${image}`}
       alt='documentation'
     />
-    <div
-      css={{
-        margin: '1rem 0',
-        fontWeight: '500',
-        fontSize: '1.5rem',
-        textTransform: 'capitalize',
-      }}
-    >
-      {title}
-    </div>
+    <Link to={link}>
+      <div
+        css={{
+          margin: '1rem 0',
+          fontWeight: '500',
+          fontSize: '1.5rem',
+          textTransform: 'capitalize',
+          textDecoration: link ? 'underline' : 'none',
+        }}
+      >
+        {title}
+      </div>
+    </Link>
     <p>{body}</p>
   </div>
 );
@@ -271,14 +274,16 @@ const Home = () => {
           >
             <Card
               image='draft.svg'
+              link='/docs'
               title='API documentation'
               body='Our highly maintained and detailed API documentation contains everything you need to know to integrate our API with your project'
             />
             <Card
               image='bug.svg'
-              title='API testground'
-              body='Our testground lets you quickly test our API endpoints and play with the
-              formatted response for each call (coming soon)'
+              link='/playground'
+              title='API playground'
+              body='Our playground lets you quickly test our API endpoints and play with the
+              formatted response for each call, all without having to do any local setup'
             />
             <Card
               image='device.svg'
