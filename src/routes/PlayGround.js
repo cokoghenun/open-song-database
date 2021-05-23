@@ -10,13 +10,13 @@ import mq from '../utils/mq';
 import Info from '../components/Info';
 
 const PlayGround = ({ location: { search } }) => {
-  const { baseUrl } = useContext(AppContext);
   const _search = new URLSearchParams(search);
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
+  const { baseUrl, gqlUrl } = useContext(AppContext);
   const [query, setQuery] = useState(_search.get('query') || '');
   const [status, setStatus] = useState({ status: null, text: null });
-  const [queryType, setQueryType] = useState(_search.get('qType') || 'rest');
+  const [queryType, setQueryType] = useState(_search.get('qType') || 'graphql');
 
   const runQuery = async (e) => {
     e.preventDefault();
@@ -167,20 +167,27 @@ const PlayGround = ({ location: { search } }) => {
                   placeholder='/search/artist?query=sia&limit=10'
                 />
               ) : (
-                <textarea
-                  required
-                  rows='10'
-                  id='query'
-                  name='query'
-                  value={query}
-                  placeholder={`query {
+                <div>
+                  <textarea
+                    required
+                    rows='10'
+                    id='query'
+                    name='query'
+                    value={query}
+                    placeholder={`query {
   searchArtist(input: { query: "sia", limit: 10 }) {
     id
     name
   }
 }`}
-                  onChange={({ target }) => setQuery(target.value)}
-                ></textarea>
+                    onChange={({ target }) => setQuery(target.value)}
+                  ></textarea>
+                  <div css={{fontSize: '0.8rem'}} className='line-numbers language-js'>
+                    Visit {' '}
+                    <code>{gqlUrl + '/<your-api-key>/'}</code>
+                    {' '}to use the GraphiQL explorer
+                  </div>
+                </div>
               )}
             </div>
             <div css={{ marginTop: '23px' }}>
